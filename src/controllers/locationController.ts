@@ -19,9 +19,9 @@ export class LocationsController {
       // Após a verificação o local é registrado
       const location = await prismaClient.locations.create({
         data: {
-          name,
-          address,
-        },
+          name, 
+          address 
+        }
       });
 
       return response.status(201).json(location);
