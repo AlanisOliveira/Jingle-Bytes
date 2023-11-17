@@ -11,7 +11,7 @@ export class EventsController {
       const event = await prismaClient.events.create({
         data: {
           name,
-          date: new Date(date).toLocaleDateString(),
+          date: new Date(date),
           description,
           categoryId,
           locationsId
