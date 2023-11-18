@@ -21,7 +21,6 @@ git clone https://github.com/AlanisOliveira/Jingle-Bytes
 npm install
 npx prima migrate dev
 npm run dev
-
 ```
 
 ### Routes
