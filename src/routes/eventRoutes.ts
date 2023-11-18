@@ -1,17 +1,24 @@
 import { Router } from "express";
-import { EventsController } from "../controllers/eventController";
+import {
+  createEvent,
+  getEvents,
+  getEventById,
+  updateEvent,
+  deleteEvent,
+  getEventsFiltered,
+} from "../controllers/eventController";
 
 const eventRoutes = Router();
-const eventsController = new EventsController();
 
 /*
 Rotas com seus respectivos métodos HTTP para criar, listar, atualizar ou remover eventos.
 */
 
-eventRoutes.post("/event", eventsController.createEvent);
-eventRoutes.get("/events", eventsController.getEvents);
-eventRoutes.get("/event/:id", eventsController.getEventById);
-eventRoutes.patch("/event/:id", eventsController.updateEvent);
-eventRoutes.delete("/event/:id", eventsController.updateEvent);
+eventRoutes.post("/", createEvent);
+eventRoutes.get("/all", getEvents);
+eventRoutes.get("/unique/:id", getEventById);
+eventRoutes.get("/find", getEventsFiltered);
+eventRoutes.patch("/:id", updateEvent);
+eventRoutes.delete("/:id", deleteEvent);
 
 export { eventRoutes };

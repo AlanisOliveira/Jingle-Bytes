@@ -1,17 +1,22 @@
 import { Router } from "express";
-import { CategoryController } from "../controllers/categoryController";
+import {
+  createCategory,
+  getCategories,
+  getCategoryById,
+  updateCategory,
+  deleteCategory
+} from "../controllers/categoryController";
 
 const categoryRoutes = Router();
-const categoryController = new CategoryController();
 
 /*
 Rotas com seus respectivos métodos HTTP para criar, listar, atualizar ou remover categorias.
 */
 
-categoryRoutes.post("/category", categoryController.createCategory);
-categoryRoutes.get("/categories", categoryController.getCategories);
-categoryRoutes.get("/category/:id", categoryController.getCategoryById);
-categoryRoutes.put("/category/:id", categoryController.updateCategory);
-categoryRoutes.delete("/category/:id", categoryController.deleteCategory);
+categoryRoutes.post("/", createCategory);
+categoryRoutes.get("/all", getCategories);
+categoryRoutes.get("/unique/:id", getCategoryById);
+categoryRoutes.put("/:id", updateCategory);
+categoryRoutes.delete("/:id", deleteCategory);
 
 export { categoryRoutes };
