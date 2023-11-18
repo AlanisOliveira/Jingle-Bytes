@@ -45,7 +45,7 @@ npm run dev
 ***Event***
 
 - /event - POST - create an Event (name*, description, date*, category_id*, place_id*)
-- /event/find?categories=List<Uuid>&dates=List<DateTime>&places=List<Uuid> - GET - filter events (**Filter Params)
+- /event/find?search=String&categories=List<Uuid>&dates=List<DateTime>&places=List<Uuid> - GET - filter events (**Filter Params)
 - /event/all - GET - get all events
 - /event/unique/:event_id - GET - get unique event with event_id
 - /event/:event_id - PATCH - update an Event ( name, description, date, category_id, place_id) with event_id*
@@ -56,7 +56,7 @@ npm run dev
 - all items marked with * are required
 
 ****Filter Params**:
-
+- search String
 - categories (Uuid list separated by comma)
 - dates(list of 2 datas separated by comma MM/DD/YYYY or YYYY/DD/MM)
 - places (Uuid list separated by comma)

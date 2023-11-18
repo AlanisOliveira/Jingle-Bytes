@@ -118,10 +118,9 @@ async function deleteEvent(request: Request, response: Response) {
 
 const getEventsFiltered = async (req: Request, res: Response) => {
   try {
-    const { categories, dates, places } = req.query;
+    const { search, categories, dates, places } = req.query;
 
-    if (typeof categories === "undefined" && typeof places === "undefined" && typeof dates === "undefined") {
-      console.log("here");
+    if (typeof search === "undefined" && typeof categories === "undefined" && typeof places === "undefined" && typeof dates === "undefined") {
       return res.status(400).json({ "status": "Any Filters Selected" })
 
     }
@@ -129,9 +128,9 @@ const getEventsFiltered = async (req: Request, res: Response) => {
     const categoriesParsed = parseQueryParams(categories); // Transfer to a set
     const datesParsed = parseDates(parseQueryParams(dates));
     const placesParsed = parseQueryParams(places);
+    const searchParsed = search as string | undefined
 
-    if (typeof categoriesParsed === "undefined" && typeof datesParsed === "undefined" && typeof placesParsed === "undefined") {
-      console.log("here");
+    if (typeof searchParsed === "undefined" && typeof categoriesParsed === "undefined" && typeof datesParsed === "undefined" && typeof placesParsed === "undefined") {
       return res.status(400).json({ "status": "Filters Invalid" })
 
     }
@@ -148,7 +147,23 @@ const getEventsFiltered = async (req: Request, res: Response) => {
           gte: datesParsed[0],
           lte: datesParsed[1],
 
+        },
+        AND: {
+          OR: [
+            {
+              name: {
+                contains: searchParsed
+              },
+            },
+            {
+
+              description: {
+                contains: searchParsed
+              },
+            }
+          ]
         }
+
       }
     })
     res.status(200).json(events)

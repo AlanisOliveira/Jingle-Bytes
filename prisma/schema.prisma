@@ -38,6 +38,7 @@ model Event {
   place_id    String
 
   @@unique([name, date, category_id, place_id])
+  @@index([name, description, id, category_id, place_id])
   @@map("events")
 }
 
