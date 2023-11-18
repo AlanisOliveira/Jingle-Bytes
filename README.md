@@ -15,7 +15,7 @@ Este projeto é o desenvolvimento de uma API utilizando Node.js, Prisma, Express
 Clone o Repositório: 
 
 ```bash
-$ git clone [URL do Repositório]
+$ git clone https://github.com/AlanisOliveira/Jingle-Bytes.git
 ```
 $ 
 
