@@ -1,0 +1,10 @@
+:root {
+  --background: rgba(242, 242, 242, 1);
+  --background-cinza: rgba(217, 217, 217, 1);
+  --elementos-de-destaque: rgba(12, 24, 17, 1);
+  --elementos-secundrios: rgba(44, 82, 52, 1);
+  --erros: rgba(232, 42, 23, 1);
+  --f-2f-2f-2: rgba(242, 242, 242, 1);
+  --indicadores-de-sucesso: rgba(0, 159, 78, 1);
+  --x-45-5a-64: rgba(1, 126, 82, 1);
+}
