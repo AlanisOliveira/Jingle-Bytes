@@ -1,7 +1,5 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-
 import { httpClient } from "../client/axios";
-import { GenericResponse } from "../types/generic_response";
 import { Category } from "../types/category";
 import { Place } from "../types/place";
 
@@ -45,8 +43,8 @@ export const GlobalContextProvider = ({ children }: GlobalProps) => {
 
   function update_categories() {
     setIsLoading(true)
-    httpClient.get<GenericResponse<Place[]>>("/place/all")
-      .then(({ data }) => setPlaces(data.data))
+    httpClient.get<Category[]>("/category/all")
+      .then(({ data }) => setCategories(data))
       .catch((e) => console.error(e))
       .then(() => setIsLoading(false))
 
@@ -54,8 +52,8 @@ export const GlobalContextProvider = ({ children }: GlobalProps) => {
 
   function update_places() {
     setIsLoading(true)
-    httpClient.get<GenericResponse<Place[]>>("/place/all")
-      .then(({ data }) => setPlaces(data.data))
+    httpClient.get<Place[]>("/place/all")
+      .then(({ data }) => setPlaces(data))
       .catch((e) => console.error(e))
       .then(() => setIsLoading(false))
   }
