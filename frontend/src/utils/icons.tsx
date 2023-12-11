@@ -23,7 +23,7 @@ const EditIcon = (props: IconProps) => {
 const TrashIcon = (props: IconProps) => {
   return (
     <svg
-      className="h-4 fill-white"
+      // className="h-4 fill-white"
       version="1.1"
       viewBox="0 0 70.289 78.893"
       xmlns="http://www.w3.org/2000/svg"

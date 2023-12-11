@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { Event } from "../../types/event"
 import { EditIcon, TrashIcon } from "../../utils/icons"
 import { routes } from "../../utils/routes"
-import UpdateDialog from "../modal/add_or_update_event_dialog"
+import UpdateDialog from "../modal/update_event_dialog"
 import { useState } from "react"
 import DeleteModal from "../modal/delete_event_modal"
 
