@@ -110,14 +110,9 @@ const StyledEvento = styled.div`
       color: var(--elementos-secundrios);
       width: auto;
       margin-top: 3rem;
-      
-
-      
-      
-      
     }
   }
-`;
+`
 
 
 const Evento = () => {

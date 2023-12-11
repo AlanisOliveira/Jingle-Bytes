@@ -89,25 +89,25 @@ const EventEdit = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:42069/event/all'); 
+        const response = await axios.get('http://localhost:42069/event/all');
         const eventsWithNames = await Promise.all(response.data.map(async event => {
-            let categoryName = '';
-            let placeName = '';
-  
-            try {
-              const categoryResponse = await axios.get(`http://localhost:42069/category/${event.category_id}`);
-              categoryName = categoryResponse.data.name;
-            } catch (error) {
-              console.error("Erro ao buscar nome da categoria:", error);
-            }
-  
-            try {
-              const placeResponse = await axios.get(`http://localhost:42069/place/${event.place_id}`);
-              placeName = placeResponse.data.name;
-            } catch (error) {
-              console.error("Erro ao buscar nome do local:", error);
-            }
-            return { ...event, categoryName, placeName };
+          let categoryName = '';
+          let placeName = '';
+
+          try {
+            const categoryResponse = await axios.get(`http://localhost:42069/category/${event.category_id}`);
+            categoryName = categoryResponse.data.name;
+          } catch (error) {
+            console.error("Erro ao buscar nome da categoria:", error);
+          }
+
+          try {
+            const placeResponse = await axios.get(`http://localhost:42069/place/${event.place_id}`);
+            placeName = placeResponse.data.name;
+          } catch (error) {
+            console.error("Erro ao buscar nome do local:", error);
+          }
+          return { ...event, categoryName, placeName };
         }));
 
         setEvents(eventsWithNames);

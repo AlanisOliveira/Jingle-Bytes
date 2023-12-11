@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/eventos?" element={<Eventos />} />
         <Route path="/eventos/CardEventos" element={<EventList />} />
         <Route path="/eventos/EditEventos" element={<EventEdit />} />
