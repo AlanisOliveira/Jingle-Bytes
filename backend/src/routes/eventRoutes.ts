@@ -6,6 +6,7 @@ import {
   updateEvent,
   deleteEvent,
   getEventsFiltered,
+  getEventDetail,
 } from "../controllers/eventController";
 
 const eventRoutes = Router();
@@ -20,5 +21,6 @@ eventRoutes.get("/unique/:id", getEventById);
 eventRoutes.get("/find", getEventsFiltered);
 eventRoutes.patch("/:id", updateEvent);
 eventRoutes.delete("/:id", deleteEvent);
+eventRoutes.get("/details/:event_id", getEventDetail);
 
 export { eventRoutes };

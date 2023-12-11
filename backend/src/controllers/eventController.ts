@@ -90,6 +90,40 @@ async function updateEvent(request: Request, response: Response) {
   }
 }
 
+const getEventDetail = async (req: Request, res: Response) => {
+  try {
+    const { event_id } = req.params;
+    const event = await prismaClient.event.findFirst({
+      where: {
+        id: {
+          equals: event_id
+        }
+      }, include: {
+        category: {
+          select: {
+            name: true
+          }
+        },
+        place: {
+          select: {
+            name: true,
+            address: true,
+            neighborhood: true,
+            city: true,
+            state: true,
+            country: true,
+          }
+        }
+      }
+    })
+    res.status(200).json({ event })
+
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}
+
+
 //Método para remover um evento registrado
 async function deleteEvent(request: Request, response: Response) {
   try {
@@ -180,5 +214,6 @@ export {
   getEventById,
   updateEvent,
   deleteEvent,
-  getEventsFiltered
+  getEventsFiltered,
+  getEventDetail
 }
